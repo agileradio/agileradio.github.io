@@ -23,7 +23,7 @@ layout: plain
     </itunes:category>
 
     {% assign posts = site.posts | where_exp: "post", "post.draft != true" | sort: "date" | reverse %}
-    {% for post in posts limit: 100 %}
+    {% for post in posts limit: site.feed_count %}
     <item>
       <title>{{ post.title }}</title>
       <description><![CDATA[
