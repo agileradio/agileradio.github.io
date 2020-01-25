@@ -1,0 +1,50 @@
+---
+layout: plain
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/DTDs/Podcast-1.0.dtd">
+  <channel>
+    <title>{{ site.name }}</title>
+    <description>{{ site.description }}</description>
+    <link>{{ site.url }}</link>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <itunes:subtitle>{{ site.description }}</itunes:subtitle>
+    <itunes:author>{{ site.author.name }}</itunes:author>
+    <itunes:summary>{{ site.description }}</itunes:summary>
+    <itunes:owner>
+      <itunes:name>{{ site.author.name }}</itunes:name>
+      <itunes:email>{{ site.author.email }}</itunes:email>
+    </itunes:owner>
+    <itunes:image href="{{ site.author.image | absolute_url }}"/>
+    <itunes:category text="Technology">
+      <itunes:category text="Software"/>
+      <itunes:category text="Agile"/>
+    </itunes:category>
+
+    {% assign posts = site.posts | where_exp: "post", "post.draft != true" | sort: "date" | reverse %}
+    {% for post in posts limit: 100 %}
+    <item>
+      <title>{{ post.title }}</title>
+      <description><![CDATA[
+{% if post.episode %}<p>Episode {{ post.episode }}:</p>{% endif %}
+{{ post.content }}
+      ]]></description>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <link>{{ post.url | absolute_url }}</link>
+      <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+      <category>Radio</category>
+      {% assign mp3url = null %}
+      {% if post.mp3id %}
+        {% assign mp3url = "https://drive.google.com/uc?id=" | append: post.mp3id %}
+      {% endif %}
+      {% if post.mp3file %}
+        {% assign mp3url = "http://agileradio-assets1.s3-website-us-west-1.amazonaws.com/mp3/" | append: post.mp3file %}
+      {% endif %}
+      {% if mp3url %}
+        <enclosure url="{{ mp3url }}" type="audio/mpeg" {% if post.mp3size %}length="{{ post.mp3size }}"{% endif %}/>
+      {% endif %}
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

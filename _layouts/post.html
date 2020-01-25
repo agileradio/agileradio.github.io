@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article>
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        {% if page.episode %}
+          <p>Episode {{ page.episode }}</p>
+        {% endif %}
+        <h1 class="title is-spaced">
+          {{ page.title }}
+        </h1>
+        <small><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y.%m.%d' }}</time></small>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        {{ content }}
+
+        {% if page.mp3id %}
+        <div>
+          <audio src="https://drive.google.com/uc?id={{ page.mp3id }}" controls></audio>
+        </div>
+        {% endif %}
+        {% if page.mp3file %}
+        <div>
+          <audio src="http://agileradio-assets1.s3-website-us-west-1.amazonaws.com/mp3/{{ page.mp3file }}" controls></audio>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</article>

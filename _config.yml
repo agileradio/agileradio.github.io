@@ -1,0 +1,32 @@
+name: アジャイルラジオ
+description: "アジャイルラジオは、アジャイル開発に関するありとあらゆる情報を取り上げる番組です。毎回、アジャイルにまつわる様々なテーマを掘り下げ、できる限り語り尽くします。"
+url: https://agileradio.github.io
+author:
+  name: AgileRadio
+  twitter: agileradio15
+  facebook: AgileRadio
+  email: scrumdo.kansai@gmail.com
+  image: /assets/img/agileradio_banner_1400x1400.jpg
+permalink: /:year/:month/:day/:title/
+sass:
+  style: compressed
+paginate: 10
+paginate_path: "/page/:num/"
+markdown: kramdown
+
+plugins:
+  - jekyll-paginate
+  - jekyll-gist
+#  - jekyll-feed
+
+include:
+  - _redirects
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CNAME
+  - vendor
+  - .idea
+  - package.json

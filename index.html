@@ -1,0 +1,72 @@
+---
+layout: default
+---
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-spaced">
+        <a href="/">{{ site.name }}</a>
+      </h1>
+      <h2 class="subtitle is-6">
+        {{ site.description }}
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section articleList">
+  <div class="container">
+    {% for post in paginator.posts %}
+      <article class="card">
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          <div class="card-content">
+
+            {% if post.episode %}
+            <p class="subtitle is-6"><small>Episode {{ post.episode }}</small></p>
+            {% endif %}
+            <p class="title is-4">{{ post.title }}</p>
+
+            <div class="content">
+              {{ post.excerpt | strip_html }}
+              <div class="has-text-right is-size-7">
+                <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+              </div>
+            </div>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+
+    <nav class="pagination is-centered">
+      <a
+        class="pagination-previous"
+        {% if paginator.previous_page %}
+          href="{% if paginator.previous_page == 1 %}/{% else %}/page/{{ paginator.previous_page }}/{% endif %}"
+        {%else%}
+          disabled
+        {% endif %}
+      >&lt;&lt; Newer</a>
+      <a
+        class="pagination-next"
+        {% if paginator.next_page %}
+          href="/page/{{ paginator.next_page }}/"
+        {%else%}
+          disabled
+        {% endif %}
+      >Older &gt;&gt;</a>
+      <ul class="pagination-list">
+        {% for page in (1..paginator.total_pages) %}
+          {% if page == 2 or page == paginator.total_pages %}
+            <li class="pager_ellipsis is-hidden"><span class="pagination-ellipsis">&hellip;</span></li>
+          {% endif %}
+          <li class="pager is-hidden">
+            <a {% if page == paginator.page %}{% else %}
+               href="{% if page == 1 %}/{% else %}/page/{{ page }}/{% endif %}" {%
+               endif %} class="pagination-link {% if page == paginator.page %} is-current {% endif %}">{{ page }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      <script>pager({{ paginator.page }}, {{ paginator.total_pages }}, 5)</script>
+    </nav>
+  </div>
+</section>

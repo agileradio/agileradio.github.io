@@ -1,0 +1,70 @@
+/*
+ * navbar
+ */
+.navbar {
+  &.is-spaced {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .icon:only-child {
+    margin-right: .25rem;
+  }
+}
+
+
+/*
+ * main
+ */
+main {
+  padding-top: 3.25rem;
+  min-height: calc(100vh - 16rem);
+
+  .hero {
+    &.is-primary {
+      background-color: $color-primary;
+    }
+
+    .subtitle {
+      margin-top: .25rem;
+    }
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .articleList {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card {
+    .title, .subtitle {
+      color: $color-primary;
+    }
+
+    a {
+      color: $color-text;
+
+      &:hover {
+        .card-content {
+          background-color: #f8f8f8;
+        }
+      }
+    }
+  }
+
+  audio {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .pagination {
+    margin-top: 3rem;
+
+    @media screen and (max-width:768px) {
+      font-size: .75rem;
+    }
+  }
+}

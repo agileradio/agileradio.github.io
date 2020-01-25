@@ -1,0 +1,12 @@
+{
+  "name": "agileradio",
+  "version": "1.0.0",
+  "description": "agileradio",
+  "scripts": {
+    "start": "npm run serve & browser-sync start -s '_site' -if '*.css, *.js, *.html'",
+    "build": "bundle exec jekyll build",
+    "clean": "bundle exec jekyll clean",
+    "serve": "bundle exec jekyll serve"
+  },
+  "author": "agileradio"
+}

@@ -1,0 +1,44 @@
+<header class="container">
+  <nav class="navbar is-fixed-top is-expanded is-light has-shadow is-spaced">
+    <div class="navbar-brand has-text-weight-bold">
+      <a class="navbar-item" href="{{ '/' | prepend: site.baseurl }}">
+        <img src="/assets/img/avatar.png" alt="logo">
+        {{ site.name }}
+      </a>
+      <div class="navbar-burger burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="https://twitter.com/{{ site.author.twitter }}">
+          <span class="icon"><i class="fab fa-twitter"></i></span> Twitter
+        </a>
+        <a class="navbar-item" href="https://facebook.com/{{ site.author.facebook }}">
+          <span class="icon"><i class="fab fa-facebook"></i></span> Facebook
+        </a>
+        <a class="navbar-item" href="/feed.xml">
+          <span class="icon"><i class="fas fa-rss"></i></span> RSS
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="https://scrumdo-kansai.connpass.com/">
+            スクラム道関西
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://scrumdo-kansai.connpass.com/">
+              Connpass
+            </a>
+            <a class="navbar-item" href="https://facebook.com/ScrumDoKansai/">
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
