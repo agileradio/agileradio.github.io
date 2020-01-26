@@ -27,12 +27,12 @@ layout: plain
     <item>
       <title>{{ post.title }}</title>
       <description><![CDATA[
-{% if post.episode %}<p>Episode {{ post.episode }}:</p>{% endif %}
+{% if post.episode %}#{{ post.episode }}:<br/>{% endif %}
 {{ post.content }}
       ]]></description>
       <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-      <link>{{ post.url | absolute_url }}</link>
-      <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+      <link>http://agileradio.github.io{{ post.url }}</link>
+      <guid isPermaLink="true">http://agileradio.github.io{{ post.url }}</guid>
       <category>Radio</category>
       {% assign mp3url = null %}
       {% if post.mp3id %}

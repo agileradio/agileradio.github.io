@@ -13,7 +13,7 @@ sass:
 paginate: 10
 paginate_path: "/page/:num/"
 markdown: kramdown
-feed_count: 20
+feed_count: 200
 
 plugins:
   - jekyll-paginate
