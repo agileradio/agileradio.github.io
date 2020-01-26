@@ -19,9 +19,8 @@ layout: default
     <div class="container">
       <div class="content">
         {{ content }}
-        {% assign mp3url = null %}
-        {% if page.mp3id %}
-          {% assign mp3url = "https://drive.google.com/uc?id=" | append: page.mp3id %}
+        {% if page.mp3url %}
+          {% assign mp3url = page.mp3url %}
         {% endif %}
         {% if page.mp3file %}
           {% assign mp3url = "http://agileradio-assets1.s3-website-us-west-1.amazonaws.com/mp3/" | append: page.mp3file %}

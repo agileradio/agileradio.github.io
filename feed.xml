@@ -34,9 +34,8 @@ layout: plain
       <link>http://agileradio.github.io{{ post.url }}</link>
       <guid isPermaLink="true">http://agileradio.github.io{{ post.url }}</guid>
       <category>Radio</category>
-      {% assign mp3url = null %}
-      {% if post.mp3id %}
-        {% assign mp3url = "https://drive.google.com/uc?id=" | append: post.mp3id %}
+      {% if post.mp3url %}
+        {% assign mp3url = post.mp3url %}
       {% endif %}
       {% if post.mp3file %}
         {% assign mp3url = "http://agileradio-assets1.s3-website-us-west-1.amazonaws.com/mp3/" | append: post.mp3file %}
