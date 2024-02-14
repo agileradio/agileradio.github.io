@@ -8,6 +8,7 @@ author:
   email: scrumdo.kansai@gmail.com
   image: /assets/img/agileradio_banner_1400x1400.jpg
 permalink: /:year/:month/:day/:title/
+future: true
 sass:
   style: compressed
 paginate: 10
